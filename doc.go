@@ -8,9 +8,9 @@ Documentation:
 
 - Content Security Policy (CSP): http://www.w3.org/TR/cors/, https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Using_Content_Security_Policy
 
-- HTTP Public Key Pinning (HPKP): https://tools.ietf.org/html/rfc7469, https://developer.mozilla.org/en-US/docs/Web/Security/Public_Key_Pinning
+- HTTP Public Key Pinning (HPKP): RFC 7469, https://developer.mozilla.org/en-US/docs/Web/Security/Public_Key_Pinning
 
-- HTTP Strict Transport Security (HSTS): https://tools.ietf.org/html/rfc6797, https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security, https://hstspreload.appspot.com
+- HTTP Strict Transport Security (HSTS): RFC 6797, https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security, https://hstspreload.appspot.com
 
 Usage
 

@@ -5,18 +5,6 @@ It implements a few quick security wins.
 
 Make sure to include the handler above any other handler that alter the response body.
 
-Documentation:
-- *Content Security Policy* (*CSP*):
-  - [W3C official specification](http://www.w3.org/TR/CSP/)
-  - [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Using_Content_Security_Policy)
-- *HTTP Public Key Pinning* (*HPKP*):
-  - [RFC 7469](https://tools.ietf.org/html/rfc7469)
-  - [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/Security/Public_Key_Pinning)
-- *HTTP Strict Transport Security* (*HSTS*):
-  - [RFC 6797](https://tools.ietf.org/html/rfc6797)
-  - [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security)
-  - [*HSTS* Preload](https://hstspreload.appspot.com)
-
 ## Installation
 
 ```Shell
@@ -45,3 +33,18 @@ func main() {
 	core.Run()
 }
 ```
+
+## Documentation
+
+##### *Content Security Policy* (*CSP*)
+  - [W3C official specification](http://www.w3.org/TR/CSP/)
+  - [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Using_Content_Security_Policy)
+
+##### *HTTP Public Key Pinning* (*HPKP*)
+  - [RFC 7469](https://tools.ietf.org/html/rfc7469)
+  - [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/Security/Public_Key_Pinning)
+
+##### *HTTP Strict Transport Security* (*HSTS*)
+  - [RFC 6797](https://tools.ietf.org/html/rfc6797)
+  - [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security)
+  - [*HSTS* Preload](https://hstspreload.appspot.com)

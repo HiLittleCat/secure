@@ -51,7 +51,7 @@ func Use(options *Options) {
 	// Panic when options are invalid.
 	if options != nil {
 		if options.HPKP != nil {
-			if _, err := hpkpHeader(options.HPKP); err != nil {
+			if _, err := hpkpHeader(options); err != nil {
 				panic(err)
 			}
 		}
@@ -89,7 +89,7 @@ func Use(options *Options) {
 
 				// Set HPKP header, but only if connected by SSL and the HPKP options are valid.
 				if isSSL && options.HPKP != nil {
-					if v, err := hpkpHeader(options.HPKP); err != nil {
+					if v, err := hpkpHeader(options); err != nil {
 						log.Stack(err)
 					} else {
 						c.ResponseWriter.Header().Set("Public-Key-Pins", v)
@@ -127,33 +127,33 @@ func Use(options *Options) {
 	})
 }
 
-func hpkpHeader(o *HPKPOptions) (v string, err error) {
+func hpkpHeader(o *Options) (v string, err error) {
 	// Validation
-	if len(o.Keys) == 0 {
+	if len(o.HPKP.Keys) == 0 {
 		err = errors.New("secure: at least one key must be set when using HPKP")
 		return
 	}
-	if o.MaxAge == 0 {
+	if o.HPKP.MaxAge == 0 {
 		err = errors.New("secure: max age must be set when using HPKP")
 		return
 	}
 
 	// Set keys.
-	for _, key := range o.Keys {
+	for _, key := range o.HPKP.Keys {
 		if v != "" {
 			v += "; "
 		}
 		v += fmt.Sprintf("pin-sha256=%q", key)
 	}
 
-	v += fmt.Sprintf("; %.f", o.MaxAge.Seconds())
+	v += fmt.Sprintf("; %.f", o.HPKP.MaxAge.Seconds())
 
-	if o.IncludeSubdomains {
+	if o.HPKP.IncludeSubdomains {
 		v += "; includeSubdomains"
 	}
 
-	if o.ReportURI != "" {
-		v += fmt.Sprintf("; report-uri=%q", o.ReportURI)
+	if o.HPKP.ReportURI != "" {
+		v += fmt.Sprintf("; report-uri=%q", o.HPKP.ReportURI)
 	}
 
 	return

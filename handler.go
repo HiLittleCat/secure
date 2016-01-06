@@ -7,7 +7,6 @@ import (
 	"time"
 
 	"github.com/volatile/core"
-	"github.com/volatile/core/log"
 )
 
 const (
@@ -90,7 +89,7 @@ func Use(options *Options) {
 				// Set HPKP header, but only if connected by SSL and the HPKP options are valid.
 				if isSSL && options.HPKP != nil {
 					if v, err := hpkpHeader(options); err != nil {
-						log.Stack(err)
+						panic(err)
 					} else {
 						c.ResponseWriter.Header().Set("Public-Key-Pins", v)
 					}
@@ -99,7 +98,7 @@ func Use(options *Options) {
 				// HSTS header, but only if HSTS options are valid.
 				if options.HSTS != nil {
 					if v, err := hstsHeader(options); err != nil {
-						log.Stack(err)
+						panic(err)
 					} else {
 						c.ResponseWriter.Header().Set("Strict-Transport-Security", v)
 					}

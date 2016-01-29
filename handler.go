@@ -131,12 +131,12 @@ func hpkpHeader(o *Options) (v string, err error) {
 		err = errors.New("secure: at least one key must be set when using HPKP")
 		return
 	}
+
 	if o.HPKP.MaxAge == 0 {
 		err = errors.New("secure: max age must be set when using HPKP")
 		return
 	}
 
-	// Set keys.
 	for _, key := range o.HPKP.Keys {
 		if v != "" {
 			v += "; "
@@ -162,10 +162,12 @@ func hstsHeader(o *Options) (v string, err error) {
 		err = errors.New("secure: SSLForced must be true when using HSTS")
 		return
 	}
+
 	if o.HSTS.MaxAge == 0 {
 		err = errors.New("secure: max age must be set when using HSTS")
 		return
 	}
+
 	if o.HSTS.Preload {
 		if o.HSTS.MaxAge < HSTSPreloadMinAge {
 			err = errors.New("secure: max age must be at least eighteen weeks when using HSTS preload")

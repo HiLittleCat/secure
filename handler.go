@@ -29,7 +29,7 @@ type Options struct {
 }
 
 // HPKPOptions represents HTTP Public Key Pinning options.
-// See https://tools.ietf.org/html/rfc7469 and https://developer.mozilla.org/en-US/docs/Web/Security/Public_Key_Pinning.
+// See RFC 7469 and https://developer.mozilla.org/en-US/docs/Web/Security/Public_Key_Pinning.
 type HPKPOptions struct {
 	Keys              []string      // Keys contains the Base64 encoded Subject Public Key Information (SPKI) fingerprints. This field is required.
 	MaxAge            time.Duration // MaxAge indicates how long the browser should remember that this site is only to be accessed using one of the pinned keys. This field is required.
@@ -38,7 +38,7 @@ type HPKPOptions struct {
 }
 
 // HSTSOptions represents HTTP Strict Transport Security options.
-// See https://tools.ietf.org/html/rfc6797 and https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security.
+// See RFC 6797 and https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security.
 type HSTSOptions struct {
 	MaxAge            time.Duration // MaxAge indicates how long the browser should remember that this site is only to be accessed using HTTPS. This field is required.
 	IncludeSubdomains bool          // IncludeSubdomains indicates whether HSTS applies to all of the site's subdomains as well.

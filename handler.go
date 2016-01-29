@@ -45,7 +45,7 @@ type HSTSOptions struct {
 	Preload           bool          // Preload indicates whether the browsers must use a secure connection. It's not a standard. See https://hstspreload.appspot.com.
 }
 
-// Use adds this handler to the default handlers stack.
+// Use adds the handler to the default handlers stack.
 func Use(options *Options) {
 	// Panic when options are invalid.
 	if options != nil {
@@ -127,7 +127,6 @@ func Use(options *Options) {
 }
 
 func hpkpHeader(o *Options) (v string, err error) {
-	// Validation
 	if len(o.HPKP.Keys) == 0 {
 		err = errors.New("secure: at least one key must be set when using HPKP")
 		return
@@ -159,7 +158,6 @@ func hpkpHeader(o *Options) (v string, err error) {
 }
 
 func hstsHeader(o *Options) (v string, err error) {
-	// Validation
 	if !o.SSLForced {
 		err = errors.New("secure: SSLForced must be true when using HSTS")
 		return

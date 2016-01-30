@@ -5,7 +5,6 @@ It provides quick security wins.
 Usage
 
 Use adds the handler to the default handlers stack:
-
 	secure.Use(nil)
 
 Make sure to include the handler above any other handler that alter the response body.
